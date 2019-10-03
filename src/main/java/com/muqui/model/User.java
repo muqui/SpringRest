@@ -13,6 +13,18 @@ public class User {
     String nombre;
     int id;
 
+    /*
+    SIN ESTE CONSTRUCOTR SE OBTIENE EL SIGUIENTE ERROR:
+     org.springframework.web.servlet.mvc.support.DefaultHandlerExceptionResolver.handleHttpMessageNotReadable Failed to read HTTP message: 
+    org.springframework.http.converter.HttpMessageNotReadableException: JSON parse error: Can not construct instance of com.muqui.model.User: 
+    no suitable constructor found, can not deserialize from Object value (missing default constructor or creator, 
+    or perhaps need to add/enable type information?); nested exception is com.fasterxml.jackson.databind.JsonMappingException: 
+    Can not construct instance of com.muqui.model.User: no suitable constructor found, can not deserialize from Object value 
+    (missing default constructor or creator, or perhaps need to add/enable type information?)
+    */
+    public User() {
+    }
+
     public User(String nombre, int id) {
         this.nombre = nombre;
         this.id = id;
