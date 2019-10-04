@@ -5,10 +5,14 @@
  */
 package com.muqui.config;
 
+import org.springframework.security.web.context.AbstractSecurityWebApplicationInitializer;
+
 /**
  *
  * @author mq12
  */
-public class AppConfig {
-    
+
+public class SpringSecurityInitializer extends AbstractSecurityWebApplicationInitializer {
+
 }
+
