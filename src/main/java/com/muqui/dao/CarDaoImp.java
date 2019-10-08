@@ -5,7 +5,11 @@
  */
 package com.muqui.dao;
 
-import com.muqui.model.User;
+import com.muqui.model.Car;
+
+import com.muqui.model.Users;
+import java.util.List;
+import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,7 +20,7 @@ import org.springframework.stereotype.Repository;
  * @author mq12
  */
 @Repository("userDao")
-public class UserDaoImp implements UserDao {
+public class CarDaoImp implements CarDao {
 
     @Autowired
     private SessionFactory sessionFactory;
@@ -26,13 +30,26 @@ public class UserDaoImp implements UserDao {
     }
 
     @Override
-    public void saveUser(User user) {
+    public void saveCar(Car car) {
         Session session = this.sessionFactory.openSession();
         session.beginTransaction();
-        session.save(user);
+        session.save(car);
 
         session.getTransaction().commit();
         System.out.println("GUARDADO OK ANGEL ANGEL ANGEL ANGEL ANGEL ANGEL ANGEL ANGEL ANGEL ANGEL ANGEL ANGEL ANGEL ANGEL ANGEL ANGEL");
+    }
+
+    @Override
+        public Users findByUserName(String username) {
+        Session session = this.sessionFactory.getCurrentSession();
+        Query query = session.createQuery("from Users where username= :username ");
+        query.setParameter("username", username);
+        List<?> list = query.list();
+        Users u = (Users) list.get(0);
+
+        System.out.println(u);
+
+        return u;
     }
 
 }

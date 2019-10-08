@@ -3,15 +3,18 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.muqui.service;
+package com.muqui.dao;
 
-import com.muqui.model.User;
+import com.muqui.model.Car;
+
+import com.muqui.model.Users;
 
 /**
  *
  * @author mq12
  */
-public interface UserService {
-     public void saveUser(User user);
-    
+public interface CarDao {
+    public void saveCar(Car car);
+
+    public Users findByUserName(String username);
 }

@@ -5,25 +5,25 @@
  */
 package com.muqui.service;
 
-import com.muqui.dao.UserDao;
-import com.muqui.model.User;
+import com.muqui.model.Car;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import com.muqui.dao.CarDao;
 
 /**
  *
  * @author mq12
  */
-@Service("userService")
+@Service("carService")
 @Transactional
-public class UserServiceImp implements UserService{
+public class CarServiceImp implements CarService{
         @Autowired
-    private UserDao dao;
+    private CarDao dao;
 
     @Override
-    public void saveUser(User user) {
-       dao.saveUser(user);
+    public void saveCar(Car car) {
+       dao.saveCar(car);
     }
     
 }
