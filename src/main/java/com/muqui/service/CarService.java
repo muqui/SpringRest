@@ -14,5 +14,6 @@ import com.muqui.model.Car;
  */
 public interface CarService {
      public void saveCar(Car car);
+     public Car getCar(Integer id);
     
 }

@@ -20,24 +20,24 @@ import com.muqui.service.CarService;
  * @author mq12
  */
 @RestController
-public class RestUserController {
+public class RestCarController {
     
      @Autowired
-    CarService userService;
+    CarService carService;
     
     
-     /*---Get a user by id---*/
+     /*---Get a car by id---*/
    @GetMapping("/car/{id}")
-   public ResponseEntity<Car> get(@PathVariable("id") long id) {  
-       
-      return ResponseEntity.ok().body(null);
+   public ResponseEntity<Car> get(@PathVariable("id") Integer id) {  
+       Car car = carService.getCar(id);
+      return ResponseEntity.ok().body(car);
    }
    
-    /*---Add new book---*/
+    /*---Add new car---*/
    @PostMapping("/car")
    public ResponseEntity<?> save(@RequestBody Car car) {
      
-     userService.saveCar(car);
+     carService.saveCar(car);
       return ResponseEntity.ok().body("New Car has been saved with Model:"+ car.getModel());
    }
 }

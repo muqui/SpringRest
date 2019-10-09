@@ -17,4 +17,6 @@ public interface CarDao {
     public void saveCar(Car car);
 
     public Users findByUserName(String username);
+
+    public Car getCar(Integer id);
 }

@@ -36,7 +36,7 @@ public class CarDaoImp implements CarDao {
         session.save(car);
 
         session.getTransaction().commit();
-        System.out.println("GUARDADO OK ANGEL ANGEL ANGEL ANGEL ANGEL ANGEL ANGEL ANGEL ANGEL ANGEL ANGEL ANGEL ANGEL ANGEL ANGEL ANGEL");
+       
     }
 
     @Override
@@ -50,6 +50,18 @@ public class CarDaoImp implements CarDao {
         System.out.println(u);
 
         return u;
+    }
+
+    @Override
+    public Car getCar(Integer id) {
+         Session session = this.sessionFactory.getCurrentSession();
+        Query query = session.createQuery("from Car where id= :id ");
+        query.setParameter("id", id);
+        List<?> list = query.list();
+         Car car = (Car) list.get(0);
+         
+         return car;
+         
     }
 
 }

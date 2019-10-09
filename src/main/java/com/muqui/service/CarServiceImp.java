@@ -25,5 +25,11 @@ public class CarServiceImp implements CarService{
     public void saveCar(Car car) {
        dao.saveCar(car);
     }
+
+    @Override
+    public Car getCar(Integer id) {
+       return dao.getCar(id);
+    }
+    
     
 }
